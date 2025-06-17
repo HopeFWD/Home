@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Core Sales Catalog</title>
+  <title>Core Sales | Luxury Shopping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #d4af37;
       --dark-gold: #a3872e;
       --cream: #f8f5f0;
-      --light-cream: #fffcf7;
       --dark-gray: #2a2a2a;
       --medium-gray: #555;
-      --light-gray: #e0e0e0;
-      --navy: #0a2342;
-      --nature-green: #3a5a40;
+      --social-ico: #7a7a7a;
     }
     
     body {
@@ -22,8 +22,8 @@
       padding: 0;
       background: var(--cream);
       color: var(--dark-gray);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.5;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -32,26 +32,46 @@
     header {
       background: var(--dark-gray);
       color: var(--gold);
-      padding: 1.5rem 1rem;
+      padding: 1.2rem 1rem;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
     }
 
-    header h1 {
-      margin: 0;
-      font-size: clamp(1.5rem, 4vw, 2rem);
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
       font-weight: 700;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      margin: 0;
     }
 
     .slogan {
-      color: var(--light-cream);
-      margin: 0.5rem 0 0;
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-      opacity: 0.9;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--cream);
+      margin: 0.3rem 0 0;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .social-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.8rem 0;
+      background: rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .social-icon {
+      color: var(--social-ico);
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: var(--gold);
     }
 
     .catalog {
@@ -59,136 +79,105 @@
       margin: 1.5rem auto;
       padding: 0 1rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
       width: 95%;
     }
 
-    .item {
-      background: var(--light-cream);
-      border-radius: 12px;
-      padding: 1.25rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.08);
     }
 
-    .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-color: var(--gold);
     }
 
-    .item h2 {
-      margin: 0 0 0.75rem 0;
-      font-size: 1.25rem;
-      color: var(--dark-gray);
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
       font-weight: 600;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--gold);
+      margin: 0 0 0.5rem 0;
+      color: var(--dark-gray);
+      text-align: center;
     }
 
-    .item img {
+    .product-image {
       width: 100%;
-      height: 160px;
+      height: 120px;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
       transition: transform 0.3s ease;
-      loading: lazy;
     }
 
-    .item:hover img {
-      transform: scale(1.03);
+    .product-card:hover .product-image {
+      transform: scale(1.02);
     }
 
-    .stats {
-      background: rgba(212, 175, 55, 0.08);
-      padding: 0.8rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+    .product-stats {
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-stats p {
+      margin: 0.3rem 0;
+    }
+
+    .product-description {
       font-size: 0.85rem;
-      border-left: 2px solid var(--gold);
-    }
-
-    .stats p {
-      margin: 0.4rem 0;
-    }
-
-    .item p {
-      font-size: 0.9rem;
       color: var(--medium-gray);
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
+      margin-bottom: 0.8rem;
     }
 
-    .item a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .product-link {
+      display: block;
+      text-align: center;
       background: var(--gold);
       color: var(--dark-gray);
-      padding: 0.6rem 1.2rem;
+      padding: 0.5rem;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 4px;
+      font-size: 0.85rem;
       font-weight: 500;
-      font-size: 0.9rem;
       transition: all 0.3s ease;
-      margin-top: auto;
     }
 
-    .item a:hover {
+    .product-link:hover {
       background: var(--dark-gold);
-      transform: translateY(-2px);
     }
 
     footer {
-      margin-top: auto;
-      padding: 1.5rem;
+      margin-top: 2rem;
+      padding: 1.2rem;
       text-align: center;
       background: var(--dark-gray);
-      color: var(--light-cream);
-      font-size: 0.85rem;
-    }
-
-    .highlight {
-      color: var(--gold);
-    }
-
-    /* Efectos decorativos minimalistas */
-    .item::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--nature-green));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .item:hover::after {
-      opacity: 0.3;
+      color: var(--cream);
+      font-size: 0.8rem;
     }
 
     @media (max-width: 600px) {
       .catalog {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
-        width: 90%;
+        gap: 1rem;
       }
       
-      .item {
-        padding: 1rem;
+      .product-card {
+        padding: 0.8rem;
       }
       
-      .item img {
-        height: 140px;
+      .logo {
+        font-size: 1.8rem;
       }
       
-      header {
-        padding: 1.25rem 1rem;
+      .product-image {
+        height: 100px;
       }
     }
   </style>
@@ -196,51 +185,58 @@
 <body>
 
   <header>
-    <h1>Core Sales Catalog</h1>
+    <h1 class="logo">Core Sales</h1>
     <p class="slogan">You deserve this. Shop effortlessly, enjoy endlessly.</p>
   </header>
 
+  <div class="social-bar">
+    <a href="#" class="social-icon">📱</a>
+    <a href="#" class="social-icon">📘</a>
+    <a href="#" class="social-icon">✉️</a>
+    <a href="#" class="social-icon">🎵</a>
+  </div>
+
   <main class="catalog">
-    <div class="item">
-      <h2>Luxe Haven</h2>
-      <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Luxe Haven" loading="lazy">
-      <div class="stats">
+    <div class="product-card">
+      <h3 class="product-title">Luxe Haven</h3>
+      <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=240&q=80" alt="Luxe Haven" class="product-image" loading="lazy">
+      <div class="product-stats">
         <p><strong>Monthly Sales:</strong> 12,500+</p>
         <p><strong>Annual Revenue:</strong> $1.2M USD</p>
-        <p><strong>Customer Rating:</strong> 4.9/5</p>
+        <p><strong>Rating:</strong> 4.9/5</p>
       </div>
-      <p>Premium lifestyle brand offering curated collections of luxury home goods and personal accessories with exceptional craftsmanship and timeless design.</p>
-      <a href="https://luxehaven.com" target="_blank">Explore Collection</a>
+      <p class="product-description">Premium lifestyle brand offering curated luxury home goods and accessories with exceptional craftsmanship.</p>
+      <a href="#" class="product-link">Explore Collection</a>
     </div>
 
-    <div class="item">
-      <h2>Urban Threads</h2>
-      <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Urban Threads" loading="lazy">
-      <div class="stats">
+    <div class="product-card">
+      <h3 class="product-title">Urban Threads</h3>
+      <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=240&q=80" alt="Urban Threads" class="product-image" loading="lazy">
+      <div class="product-stats">
         <p><strong>Monthly Sales:</strong> 18,000+</p>
         <p><strong>Annual Revenue:</strong> $2.8M USD</p>
-        <p><strong>Customer Rating:</strong> 4.7/5</p>
+        <p><strong>Rating:</strong> 4.7/5</p>
       </div>
-      <p>Contemporary fashion destination blending streetwear aesthetics with sustainable materials, offering trend-forward apparel for the modern urban lifestyle.</p>
-      <a href="https://urbanthreads.com" target="_blank">Shop Now</a>
+      <p class="product-description">Contemporary fashion blending streetwear with sustainable materials for the modern urban lifestyle.</p>
+      <a href="#" class="product-link">Shop Now</a>
     </div>
 
-    <div class="item">
-      <h2>Artisan Pantry</h2>
-      <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Artisan Pantry" loading="lazy">
-      <div class="stats">
+    <div class="product-card">
+      <h3 class="product-title">Artisan Pantry</h3>
+      <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=240&q=80" alt="Artisan Pantry" class="product-image" loading="lazy">
+      <div class="product-stats">
         <p><strong>Monthly Sales:</strong> 9,500+</p>
         <p><strong>Annual Revenue:</strong> $950K USD</p>
-        <p><strong>Customer Rating:</strong> 4.8/5</p>
+        <p><strong>Rating:</strong> 4.8/5</p>
       </div>
-      <p>Curated selection of gourmet foods and culinary essentials from small-batch producers worldwide, bringing exceptional flavors to discerning kitchens.</p>
-      <a href="https://artisanpantry.com" target="_blank">Discover Products</a>
+      <p class="product-description">Curated gourmet foods and culinary essentials from small-batch producers worldwide.</p>
+      <a href="#" class="product-link">Discover Products</a>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 <span class="highlight">Core Sales Catalog</span>. All rights reserved.</p>
-    <p>Premium retail solutions for discerning merchants</p>
+    <p>&copy; 2025 Core Sales. All rights reserved.</p>
+    <p>Luxury retail solutions</p>
   </footer>
 
 </body>
