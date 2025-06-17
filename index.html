@@ -3,125 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elegant Catalog</title>
+  <title>Core Sales Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --gold: #d4af37;
+      --dark-gold: #a3872e;
+      --cream: #f8f5f0;
+      --light-cream: #fffcf7;
+      --dark-gray: #2a2a2a;
+      --medium-gray: #555;
+      --light-gray: #e0e0e0;
+    }
+    
     body {
       margin: 0;
       padding: 0;
-      background: #f8f5f0;
-      color: #1a1a1a;
-      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--dark-gray);
+      font-family: 'Montserrat', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
 
     header {
-      background: #000;
-      color: #d4af37;
+      background: var(--dark-gray);
+      color: var(--gold);
       width: 100%;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border-bottom: 1px solid var(--gold);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      letter-spacing: 1px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      letter-spacing: 1.5px;
       margin: 0;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
 
     .catalog {
-      margin-top: 3rem;
-      max-width: 1200px;
+      margin: 4rem auto;
+      max-width: 1300px;
       width: 90%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+      padding: 0 2rem;
     }
 
     .item {
-      background: linear-gradient(to bottom right, #fff, #f1e6d6);
-      border: 1px solid #c1b191;
-      border-radius: 20px;
-      padding: 1.5rem;
-      width: 320px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
+      background: var(--light-cream);
+      border: 1px solid var(--light-gray);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
       position: relative;
+      overflow: hidden;
     }
 
     .item:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      border-color: var(--gold);
     }
 
     .item h2 {
       margin-top: 0;
-      color: #000;
-      font-size: 1.5rem;
-      border-bottom: 1px solid #d4af37;
-      padding-bottom: 0.5rem;
+      color: var(--dark-gray);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
     }
 
     .item img {
       width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 1rem;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
     .item p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--medium-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .stats {
+      background: rgba(212, 175, 55, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
       font-size: 0.95rem;
-      line-height: 1.6;
+    }
+
+    .stats p {
+      margin: 0.5rem 0;
+      color: var(--dark-gray);
     }
 
     .item a {
       display: inline-block;
-      margin-top: 1rem;
-      background: #d4af37;
-      color: black;
-      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      background: var(--gold);
+      color: var(--dark-gray);
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background 0.3s;
+      border-radius: 12px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
     }
 
     .item a:hover {
-      background: #a3872e;
+      background: var(--dark-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
     }
 
     footer {
-      margin-top: 5rem;
-      color: #999;
-      font-size: 0.8rem;
-      padding: 2rem;
+      margin-top: auto;
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      width: 100%;
+      background: var(--dark-gray);
+      color: var(--light-gray);
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    .highlight {
+      color: var(--gold);
+    }
+
+    .rating {
+      color: var(--gold);
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Elegant Recommendations Catalog</h1>
+    <h1>Core Sales Catalog</h1>
   </header>
 
   <section class="catalog">
-    <!-- START SITE -->
+    <!-- Item 1 -->
     <div class="item">
-      <h2>Success Store</h2>
-      <img src="https://via.placeholder.com/300x150" alt="Success Store Image">
-      <p><strong>Sales:</strong> 8,000+<br>
-         <strong>Revenue:</strong> $75,000 USD<br>
-         <strong>Reviews:</strong> ⭐⭐⭐⭐☆</p>
-      <p>A store with excellent reputation, product variety and a solid base of satisfied customers.</p>
-      <a href="https://successstore.com" target="_blank">Visit Store</a>
+      <h2>Luxe Haven</h2>
+      <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Luxe Haven Store">
+      <div class="stats">
+        <p><strong>Monthly Sales:</strong> 12,500+</p>
+        <p><strong>Annual Revenue:</strong> $1.2M USD</p>
+        <p><strong>Customer Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐ (4.9/5)</span></p>
+      </div>
+      <p>Premium lifestyle brand offering curated collections of luxury home goods and personal accessories with exceptional craftsmanship and timeless design.</p>
+      <a href="https://luxehaven.com" target="_blank">Explore Collection</a>
     </div>
-    <!-- END SITE -->
+
+    <!-- Item 2 -->
+    <div class="item">
+      <h2>Urban Threads</h2>
+      <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Urban Threads Store">
+      <div class="stats">
+        <p><strong>Monthly Sales:</strong> 18,000+</p>
+        <p><strong>Annual Revenue:</strong> $2.8M USD</p>
+        <p><strong>Customer Rating:</strong> <span class="rating">⭐⭐⭐⭐☆ (4.7/5)</span></p>
+      </div>
+      <p>Contemporary fashion destination blending streetwear aesthetics with sustainable materials, offering trend-forward apparel for the modern urban lifestyle.</p>
+      <a href="https://urbanthreads.com" target="_blank">Shop Now</a>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="item">
+      <h2>Artisan Pantry</h2>
+      <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Artisan Pantry Store">
+      <div class="stats">
+        <p><strong>Monthly Sales:</strong> 9,500+</p>
+        <p><strong>Annual Revenue:</strong> $950K USD</p>
+        <p><strong>Customer Rating:</strong> <span class="rating">⭐⭐⭐⭐⭐ (4.8/5)</span></p>
+      </div>
+      <p>Curated selection of gourmet foods and culinary essentials from small-batch producers worldwide, bringing exceptional flavors to discerning kitchens.</p>
+      <a href="https://artisanpantry.com" target="_blank">Discover Products</a>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 Classic Catalog. All rights reserved.
+    <p>&copy; 2025 <span class="highlight">Core Sales Catalog</span>. All rights reserved.</p>
+    <p>Premium retail solutions for discerning merchants</p>
   </footer>
 
 </body>
