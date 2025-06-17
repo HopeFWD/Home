@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Core Sales | Luxury Shopping</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dianelyyko Digital Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --gold: #d4af37;
       --dark-gold: #a3872e;
       --cream: #f8f5f0;
+      --light-cream: #fffcf7;
       --dark-gray: #2a2a2a;
       --medium-gray: #555;
-      --social-ico: #7a7a7a;
+      --light-gray: #e0e0e0;
+      --navy: #0a2342;
+      --nature-green: #3a5a40;
+      --instagram: #E1306C;
+      --tiktok: #000000;
+      --email: #D44638;
     }
     
     body {
@@ -23,161 +30,196 @@
       background: var(--cream);
       color: var(--dark-gray);
       font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
     header {
       background: var(--dark-gray);
-      color: var(--gold);
-      padding: 1.2rem 1rem;
+      color: white;
+      width: 100%;
+      padding: 2rem 1rem;
       text-align: center;
       position: relative;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      z-index: 1;
     }
 
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
       margin: 0;
+      font-weight: 600;
     }
 
-    .slogan {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--cream);
-      margin: 0.3rem 0 0;
-      font-weight: 300;
-      letter-spacing: 0.5px;
+    .welcome-message {
+      background: white;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      line-height: 1.6;
     }
 
-    .social-bar {
+    .social-links {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
-      padding: 0.8rem 0;
-      background: rgba(0,0,0,0.03);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      margin: 1.5rem 0;
     }
 
-    .social-icon {
-      color: var(--social-ico);
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
       font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-icon:hover {
-      color: var(--gold);
-    }
-
-    .catalog {
-      max-width: 1200px;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-      width: 95%;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .product-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border-color: var(--gold);
-    }
-
-    .product-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 0 0 0.5rem 0;
-      color: var(--dark-gray);
-      text-align: center;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 0.8rem;
+      text-decoration: none;
       transition: transform 0.3s ease;
     }
 
-    .product-card:hover .product-image {
-      transform: scale(1.02);
+    .social-link:hover {
+      transform: scale(1.1);
     }
 
-    .product-stats {
-      font-size: 0.8rem;
-      margin-bottom: 0.8rem;
+    .instagram {
+      background: var(--instagram);
     }
 
-    .product-stats p {
-      margin: 0.3rem 0;
+    .tiktok {
+      background: var(--tiktok);
+    }
+
+    .email {
+      background: var(--email);
+    }
+
+    .catalog {
+      margin: 2rem auto;
+      max-width: 1000px;
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      color: var(--dark-gray);
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0.5rem 0;
+      color: var(--nature-green);
     }
 
     .product-description {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--medium-gray);
-      margin-bottom: 0.8rem;
+      margin: 0.5rem 0 1rem 0;
+      flex-grow: 1;
     }
 
-    .product-link {
-      display: block;
-      text-align: center;
-      background: var(--gold);
-      color: var(--dark-gray);
-      padding: 0.5rem;
+    .buy-button {
+      display: inline-block;
+      background: var(--nature-green);
+      color: white;
+      padding: 0.8rem 1.5rem;
       text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.85rem;
+      border-radius: 8px;
       font-weight: 500;
-      transition: all 0.3s ease;
+      text-align: center;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
 
-    .product-link:hover {
+    .buy-button:hover {
+      background: #2d4738;
+    }
+
+    .free-button {
+      background: var(--gold);
+    }
+
+    .free-button:hover {
       background: var(--dark-gold);
     }
 
-    footer {
-      margin-top: 2rem;
-      padding: 1.2rem;
-      text-align: center;
-      background: var(--dark-gray);
-      color: var(--cream);
-      font-size: 0.8rem;
+    .testimonials {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light-gray);
     }
 
-    @media (max-width: 600px) {
+    .testimonial {
+      font-size: 0.8rem;
+      color: var(--medium-gray);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .testimonial::before {
+      content: '"';
+    }
+
+    .testimonial::after {
+      content: '"';
+    }
+
+    footer {
+      margin-top: 3rem;
+      color: var(--medium-gray);
+      font-size: 0.9rem;
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+      background: var(--dark-gray);
+      color: white;
+    }
+
+    .refund-policy {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .contact-email {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
       .catalog {
         grid-template-columns: 1fr;
-        gap: 1rem;
       }
       
-      .product-card {
-        padding: 0.8rem;
-      }
-      
-      .logo {
+      header h1 {
         font-size: 1.8rem;
-      }
-      
-      .product-image {
-        height: 100px;
       }
     }
   </style>
@@ -185,58 +227,78 @@
 <body>
 
   <header>
-    <h1 class="logo">Core Sales</h1>
-    <p class="slogan">You deserve this. Shop effortlessly, enjoy endlessly.</p>
+    <h1>Dianelyyko</h1>
+    <p>BIENVENIDOS A MI TIENDA DIGITAL</p>
   </header>
 
-  <div class="social-bar">
-    <a href="#" class="social-icon">📱</a>
-    <a href="#" class="social-icon">📘</a>
-    <a href="#" class="social-icon">✉️</a>
-    <a href="#" class="social-icon">🎵</a>
+  <div class="welcome-message">
+    <p>Aquí encontrarás productos 100% digitales enfocados en el marketing y emprendimiento. Todos mis recursos están diseñados para ayudarte a generar ingresos desde casa usando tus redes sociales, sin necesidad de ser influencer. Todo el contenido es educativo, legal y de uso informativo.</p>
+    
+    <div class="social-links">
+      <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" class="social-link email"><i class="fas fa-envelope"></i></a>
+    </div>
   </div>
 
-  <main class="catalog">
-    <div class="product-card">
-      <h3 class="product-title">Luxe Haven</h3>
-      <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=240&q=80" alt="Luxe Haven" class="product-image" loading="lazy">
-      <div class="product-stats">
-        <p><strong>Monthly Sales:</strong> 12,500+</p>
-        <p><strong>Annual Revenue:</strong> $1.2M USD</p>
-        <p><strong>Rating:</strong> 4.9/5</p>
+  <section class="catalog">
+    <!-- Product 1 -->
+    <div class="product">
+      <h3 class="product-title">Gana con Sofi</h3>
+      <div class="product-price">$0</div>
+      <p class="product-description">Aprende a generar ingresos con este método probado.</p>
+      <a href="#" class="buy-button free-button">Get for free</a>
+      
+      <div class="testimonials">
+        <p class="testimonial">Este curso cambió mi forma de ver las redes sociales - María L.</p>
       </div>
-      <p class="product-description">Premium lifestyle brand offering curated luxury home goods and accessories with exceptional craftsmanship.</p>
-      <a href="#" class="product-link">Explore Collection</a>
     </div>
 
-    <div class="product-card">
-      <h3 class="product-title">Urban Threads</h3>
-      <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=240&q=80" alt="Urban Threads" class="product-image" loading="lazy">
-      <div class="product-stats">
-        <p><strong>Monthly Sales:</strong> 18,000+</p>
-        <p><strong>Annual Revenue:</strong> $2.8M USD</p>
-        <p><strong>Rating:</strong> 4.7/5</p>
+    <!-- Product 2 -->
+    <div class="product">
+      <h3 class="product-title">Aprende a trabajar con marcas</h3>
+      <div class="product-price">$50</div>
+      <p class="product-description">Guía completa para colaborar con marcas sin ser influencer.</p>
+      <a href="#" class="buy-button">Buy now</a>
+      
+      <div class="testimonials">
+        <p class="testimonial">Gracias a este curso conseguí mi primera colaboración pagada - Ana T.</p>
+        <p class="testimonial">Increíble valor por el precio, lo recomiendo 100% - Carlos M.</p>
       </div>
-      <p class="product-description">Contemporary fashion blending streetwear with sustainable materials for the modern urban lifestyle.</p>
-      <a href="#" class="product-link">Shop Now</a>
     </div>
 
-    <div class="product-card">
-      <h3 class="product-title">Artisan Pantry</h3>
-      <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=240&q=80" alt="Artisan Pantry" class="product-image" loading="lazy">
-      <div class="product-stats">
-        <p><strong>Monthly Sales:</strong> 9,500+</p>
-        <p><strong>Annual Revenue:</strong> $950K USD</p>
-        <p><strong>Rating:</strong> 4.8/5</p>
+    <!-- Product 3 -->
+    <div class="product">
+      <h3 class="product-title">Pagos por Fotos y Videos</h3>
+      <div class="product-price">$50</div>
+      <p class="product-description">Cómo monetizar tu contenido visual efectivamente.</p>
+      <a href="#" class="buy-button">Buy now</a>
+      
+      <div class="testimonials">
+        <p class="testimonial">En un mes ya recuperé mi inversión con este método - Sofía R.</p>
       </div>
-      <p class="product-description">Curated gourmet foods and culinary essentials from small-batch producers worldwide.</p>
-      <a href="#" class="product-link">Discover Products</a>
     </div>
-  </main>
+
+    <!-- Product 4 -->
+    <div class="product">
+      <h3 class="product-title">Gana escribiendo cartas</h3>
+      <div class="product-price">$45</div>
+      <p class="product-description">Método innovador para generar ingresos escribiendo.</p>
+      <a href="#" class="buy-button">Buy now</a>
+      
+      <div class="testimonials">
+        <p class="testimonial">No podía creer que se podía ganar dinero así, funciona! - Luis G.</p>
+        <p class="testimonial">Perfecto para quienes tenemos habilidades de escritura - Daniela P.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Core Sales. All rights reserved.</p>
-    <p>Luxury retail solutions</p>
+    <div class="refund-policy">
+      <p><strong>POLÍTICA DE DEVOLUCIONES Y CONTACTO</strong></p>
+      <p>Contacto directo: Para consultas o soporte técnico, puedes escribir a: <a href="mailto:dianelysbo@gmail.com" class="contact-email">dianelysbo@gmail.com</a></p>
+      <p><strong>Política de devoluciones:</strong> Los productos ofrecidos en esta tienda son 100% digitales y de entrega inmediata, por lo tanto no se aceptan devoluciones ni reembolsos una vez realizada la compra.</p>
+    </div>
   </footer>
 
 </body>
