@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dianelyyko Digital Store</title>
+  <title>Core Sales Catalog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --gold: #d4af37;
-      --dark-gold: #a3872e;
-      --cream: #f8f5f0;
+      --gold: #b89b5c;
+      --dark-gold: #8a6d3b;
+      --cream: #f9f7f3;
       --light-cream: #fffcf7;
-      --dark-gray: #2a2a2a;
+      --dark-gray: #1a1a1a;
       --medium-gray: #555;
       --light-gray: #e0e0e0;
       --navy: #0a2342;
@@ -40,30 +40,41 @@
 
     header {
       background: var(--dark-gray);
-      color: white;
+      color: var(--gold);
       width: 100%;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       text-align: center;
       position: relative;
       z-index: 1;
+      border-bottom: 1px solid rgba(184, 155, 92, 0.3);
     }
 
     header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
       margin: 0;
       font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    header p.subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-top: 0.5rem;
+      letter-spacing: 0.5px;
     }
 
     .welcome-message {
       background: white;
-      padding: 1.5rem;
-      margin: 1rem auto;
+      padding: 2rem;
+      margin: 2rem auto;
       max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       text-align: center;
       line-height: 1.6;
+      border: 1px solid rgba(184, 155, 92, 0.2);
     }
 
     .social-links {
@@ -83,7 +94,7 @@
       color: white;
       font-size: 1.2rem;
       text-decoration: none;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .social-link:hover {
@@ -108,118 +119,148 @@
       width: 90%;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
       padding: 0 1rem;
     }
 
     .product {
       background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
+      border: 1px solid rgba(184, 155, 92, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
 
     .product-title {
-      font-size: 1.3rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
       font-weight: 600;
       margin: 0 0 1rem 0;
       color: var(--dark-gray);
     }
 
     .product-price {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       margin: 0.5rem 0;
-      color: var(--nature-green);
+      color: var(--dark-gold);
     }
 
     .product-description {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--medium-gray);
-      margin: 0.5rem 0 1rem 0;
+      margin: 0.5rem 0 1.5rem 0;
       flex-grow: 1;
+      line-height: 1.6;
     }
 
     .buy-button {
       display: inline-block;
-      background: var(--nature-green);
+      background: var(--dark-gold);
       color: white;
       padding: 0.8rem 1.5rem;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 500;
       text-align: center;
       margin-top: 1rem;
       transition: background 0.3s ease;
       border: none;
       cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
     }
 
     .buy-button:hover {
-      background: #2d4738;
-    }
-
-    .free-button {
       background: var(--gold);
     }
 
+    .free-button {
+      background: var(--nature-green);
+    }
+
     .free-button:hover {
-      background: var(--dark-gold);
+      background: #2d4738;
     }
 
-    .testimonials {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--light-gray);
+    .store-links {
+      margin-top: 1.5rem;
     }
 
-    .testimonial {
-      font-size: 0.8rem;
-      color: var(--medium-gray);
-      margin-bottom: 0.5rem;
-      font-style: italic;
+    .store-link {
+      display: block;
+      background: var(--cream);
+      color: var(--dark-gray);
+      padding: 0.8rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      transition: all 0.3s ease;
+      border: 1px solid var(--light-gray);
+      font-size: 0.9rem;
     }
 
-    .testimonial::before {
-      content: '"';
+    .store-link:hover {
+      background: white;
+      border-color: var(--gold);
     }
 
-    .testimonial::after {
-      content: '"';
+    .store-link i {
+      margin-right: 8px;
+      color: var(--dark-gold);
     }
 
     footer {
-      margin-top: 3rem;
+      margin-top: 4rem;
       color: var(--medium-gray);
       font-size: 0.9rem;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
       width: 100%;
       background: var(--dark-gray);
-      color: white;
+      color: var(--light-gray);
+      border-top: 1px solid rgba(184, 155, 92, 0.3);
     }
 
-    .refund-policy {
+    .footer-content {
       max-width: 800px;
       margin: 0 auto;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       line-height: 1.6;
     }
 
-    .contact-email {
+    .copyright {
+      margin-top: 1rem;
       color: var(--gold);
-      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
+    .highlight {
+      color: var(--gold);
     }
 
     @media (max-width: 768px) {
-      .catalog {
-        grid-template-columns: 1fr;
+      header h1 {
+        font-size: 2.2rem;
       }
       
-      header h1 {
-        font-size: 1.8rem;
+      header p.subtitle {
+        font-size: 1rem;
+      }
+      
+      .catalog {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -227,12 +268,12 @@
 <body>
 
   <header>
-    <h1>Dianelyyko</h1>
-    <p>BIENVENIDOS A MI TIENDA DIGITAL</p>
+    <h1>Core Sales Catalog</h1>
+    <p class="subtitle">You deserve this. Shop effortlessly, enjoy endlessly</p>
   </header>
 
   <div class="welcome-message">
-    <p>Aquí encontrarás productos 100% digitales enfocados en el marketing y emprendimiento. Todos mis recursos están diseñados para ayudarte a generar ingresos desde casa usando tus redes sociales, sin necesidad de ser influencer. Todo el contenido es educativo, legal y de uso informativo.</p>
+    <p>Discover curated products that match your interests and lifestyle. Our catalog connects you with premium offerings from trusted retailers. Simply browse and follow the links to explore each product on the merchant's official website.</p>
     
     <div class="social-links">
       <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
@@ -244,60 +285,62 @@
   <section class="catalog">
     <!-- Product 1 -->
     <div class="product">
-      <h3 class="product-title">Gana con Sofi</h3>
-      <div class="product-price">$0</div>
-      <p class="product-description">Aprende a generar ingresos con este método probado.</p>
-      <a href="#" class="buy-button free-button">Get for free</a>
+      <h3 class="product-title">Luxe Home Collection</h3>
+      <div class="product-price">$120-$450</div>
+      <p class="product-description">Elevate your living space with our selection of premium home decor items from top designers.</p>
       
-      <div class="testimonials">
-        <p class="testimonial">Este curso cambió mi forma de ver las redes sociales - María L.</p>
+      <div class="store-links">
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Visit Bloomingdale's Collection</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>View on Nordstrom Home</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Explore at Crate & Barrel</a>
       </div>
     </div>
 
     <!-- Product 2 -->
     <div class="product">
-      <h3 class="product-title">Aprende a trabajar con marcas</h3>
-      <div class="product-price">$50</div>
-      <p class="product-description">Guía completa para colaborar con marcas sin ser influencer.</p>
-      <a href="#" class="buy-button">Buy now</a>
+      <h3 class="product-title">Tech Essentials</h3>
+      <div class="product-price">$80-$600</div>
+      <p class="product-description">Cutting-edge gadgets and electronics to enhance your daily productivity and entertainment.</p>
       
-      <div class="testimonials">
-        <p class="testimonial">Gracias a este curso conseguí mi primera colaboración pagada - Ana T.</p>
-        <p class="testimonial">Increíble valor por el precio, lo recomiendo 100% - Carlos M.</p>
+      <div class="store-links">
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Browse Best Buy Selection</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Amazon Tech Deals</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Apple Store Options</a>
       </div>
     </div>
 
     <!-- Product 3 -->
     <div class="product">
-      <h3 class="product-title">Pagos por Fotos y Videos</h3>
-      <div class="product-price">$50</div>
-      <p class="product-description">Cómo monetizar tu contenido visual efectivamente.</p>
-      <a href="#" class="buy-button">Buy now</a>
+      <h3 class="product-title">Gourmet Delights</h3>
+      <div class="product-price">$25-$150</div>
+      <p class="product-description">Artisanal foods and premium ingredients for the discerning home chef.</p>
       
-      <div class="testimonials">
-        <p class="testimonial">En un mes ya recuperé mi inversión con este método - Sofía R.</p>
+      <div class="store-links">
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Williams Sonoma Selection</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Sur La Table Gourmet</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Whole Foods Market</a>
       </div>
     </div>
 
     <!-- Product 4 -->
     <div class="product">
-      <h3 class="product-title">Gana escribiendo cartas</h3>
-      <div class="product-price">$45</div>
-      <p class="product-description">Método innovador para generar ingresos escribiendo.</p>
-      <a href="#" class="buy-button">Buy now</a>
+      <h3 class="product-title">Travel Essentials</h3>
+      <div class="product-price">$40-$300</div>
+      <p class="product-description">Premium luggage and travel accessories for your next adventure.</p>
       
-      <div class="testimonials">
-        <p class="testimonial">No podía creer que se podía ganar dinero así, funciona! - Luis G.</p>
-        <p class="testimonial">Perfecto para quienes tenemos habilidades de escritura - Daniela P.</p>
+      <div class="store-links">
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Tumi Collection</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Briggs & Riley</a>
+        <a href="#" class="store-link"><i class="fas fa-store"></i>Nordstrom Travel</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="refund-policy">
-      <p><strong>POLÍTICA DE DEVOLUCIONES Y CONTACTO</strong></p>
-      <p>Contacto directo: Para consultas o soporte técnico, puedes escribir a: <a href="mailto:dianelysbo@gmail.com" class="contact-email">dianelysbo@gmail.com</a></p>
-      <p><strong>Política de devoluciones:</strong> Los productos ofrecidos en esta tienda son 100% digitales y de entrega inmediata, por lo tanto no se aceptan devoluciones ni reembolsos una vez realizada la compra.</p>
+    <div class="footer-content">
+      <p>© 2025 Core Sales Catalog. All product links direct to official retailer websites.</p>
+      <p>Refund policies are subject to the requirements of each individual retailer and are not the responsibility of this catalog service. Please review the return policy on the merchant's website before completing your purchase.</p>
+      <p class="copyright">Crafted with <span class="highlight">elegance</span> for discerning shoppers</p>
     </div>
   </footer>
 
