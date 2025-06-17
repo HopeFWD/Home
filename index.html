@@ -16,6 +16,8 @@
       --dark-gray: #2a2a2a;
       --medium-gray: #555;
       --light-gray: #e0e0e0;
+      --navy: #0a2342;
+      --nature-green: #3a5a40;
     }
     
     body {
@@ -28,6 +30,37 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Decorative olive branch elements */
+    .olive-branch {
+      position: absolute;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .branch-1 {
+      top: 50px;
+      left: -50px;
+      transform: rotate(15deg);
+      width: 300px;
+    }
+    
+    .branch-2 {
+      bottom: 100px;
+      right: -80px;
+      transform: rotate(200deg);
+      width: 350px;
+    }
+    
+    .branch-3 {
+      top: 30%;
+      right: -60px;
+      transform: rotate(120deg);
+      width: 250px;
     }
 
     header {
@@ -38,6 +71,20 @@
       text-align: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       border-bottom: 1px solid var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.1;
+      z-index: -1;
     }
 
     header h1 {
@@ -47,6 +94,17 @@
       margin: 0;
       font-weight: 700;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    header h1::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1rem auto;
+      opacity: 0.6;
     }
 
     .catalog {
@@ -57,6 +115,8 @@
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 2.5rem;
       padding: 0 2rem;
+      position: relative;
+      z-index: 1;
     }
 
     .item {
@@ -68,6 +128,17 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212,175,55,0.03) 0%, rgba(212,175,55,0) 100%);
+      z-index: -1;
     }
 
     .item:hover {
@@ -85,6 +156,16 @@
       border-bottom: 1px solid var(--gold);
       padding-bottom: 0.75rem;
       margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .item h2::after {
+      content: "❧";
+      position: absolute;
+      right: 0;
+      color: var(--nature-green);
+      opacity: 0.5;
+      font-size: 1.2rem;
     }
 
     .item img {
@@ -94,6 +175,11 @@
       border-radius: 16px;
       margin-bottom: 1.5rem;
       border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .item:hover img {
+      transform: scale(1.02);
     }
 
     .item p {
@@ -101,6 +187,14 @@
       line-height: 1.7;
       color: var(--medium-gray);
       margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .item p::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4em;
+      color: var(--nature-green);
+      padding-right: 2px;
     }
 
     .stats {
@@ -109,6 +203,17 @@
       border-radius: 12px;
       margin-bottom: 1.5rem;
       font-size: 0.95rem;
+      position: relative;
+    }
+
+    .stats::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 20px;
+      width: 30px;
+      height: 2px;
+      background: var(--gold);
     }
 
     .stats p {
@@ -117,7 +222,8 @@
     }
 
     .item a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       margin-top: 0.5rem;
       background: var(--gold);
       color: var(--dark-gray);
@@ -132,10 +238,20 @@
       cursor: pointer;
     }
 
+    .item a::after {
+      content: "→";
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
     .item a:hover {
       background: var(--dark-gold);
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .item a:hover::after {
+      transform: translateX(3px);
     }
 
     footer {
@@ -147,6 +263,18 @@
       width: 100%;
       background: var(--dark-gray);
       color: var(--light-gray);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     footer p {
@@ -155,15 +283,106 @@
 
     .highlight {
       color: var(--gold);
+      position: relative;
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .highlight:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .rating {
       color: var(--gold);
       font-weight: 500;
     }
+
+    /* Decorative corner elements */
+    .corner-decoration {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      opacity: 0.2;
+    }
+
+    .corner-tl {
+      top: 15px;
+      left: 15px;
+      border-top: 2px solid var(--nature-green);
+      border-left: 2px solid var(--nature-green);
+    }
+
+    .corner-tr {
+      top: 15px;
+      right: 15px;
+      border-top: 2px solid var(--nature-green);
+      border-right: 2px solid var(--nature-green);
+    }
+
+    .corner-bl {
+      bottom: 15px;
+      left: 15px;
+      border-bottom: 2px solid var(--nature-green);
+      border-left: 2px solid var(--nature-green);
+    }
+
+    .corner-br {
+      bottom: 15px;
+      right: 15px;
+      border-bottom: 2px solid var(--nature-green);
+      border-right: 2px solid var(--nature-green);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .catalog {
+        grid-template-columns: 1fr;
+      }
+      
+      .branch-1, .branch-2, .branch-3 {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Decorative olive branches (SVG placeholders - replace with actual SVG paths) -->
+  <svg class="olive-branch branch-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,50 Q30,20 50,50 Q70,80 90,50" stroke="var(--nature-green)" stroke-width="2" fill="none"/>
+    <ellipse cx="30" cy="40" rx="3" ry="5" fill="var(--nature-green)"/>
+    <ellipse cx="50" cy="30" rx="3" ry="5" fill="var(--nature-green)"/>
+    <ellipse cx="70" cy="40" rx="3" ry="5" fill="var(--nature-green)"/>
+  </svg>
+  
+  <svg class="olive-branch branch-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,30 Q30,60 50,30 Q70,0 90,30" stroke="var(--nature-green)" stroke-width="2" fill="none"/>
+    <ellipse cx="30" cy="50" rx="3" ry="5" fill="var(--nature-green)"/>
+    <ellipse cx="50" cy="60" rx="3" ry="5" fill="var(--nature-green)"/>
+    <ellipse cx="70" cy="50" rx="3" ry="5" fill="var(--nature-green)"/>
+  </svg>
+  
+  <svg class="olive-branch branch-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,70 Q40,40 70,70" stroke="var(--nature-green)" stroke-width="2" fill="none"/>
+    <ellipse cx="30" cy="60" rx="3" ry="5" fill="var(--nature-green)"/>
+    <ellipse cx="50" cy="50" rx="3" ry="5" fill="var(--nature-green)"/>
+  </svg>
 
   <header>
     <h1>Core Sales Catalog</h1>
@@ -172,6 +391,11 @@
   <section class="catalog">
     <!-- Item 1 -->
     <div class="item">
+      <div class="corner-decoration corner-tl"></div>
+      <div class="corner-decoration corner-tr"></div>
+      <div class="corner-decoration corner-bl"></div>
+      <div class="corner-decoration corner-br"></div>
+      
       <h2>Luxe Haven</h2>
       <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Luxe Haven Store">
       <div class="stats">
@@ -185,6 +409,11 @@
 
     <!-- Item 2 -->
     <div class="item">
+      <div class="corner-decoration corner-tl"></div>
+      <div class="corner-decoration corner-tr"></div>
+      <div class="corner-decoration corner-bl"></div>
+      <div class="corner-decoration corner-br"></div>
+      
       <h2>Urban Threads</h2>
       <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Urban Threads Store">
       <div class="stats">
@@ -198,6 +427,11 @@
 
     <!-- Item 3 -->
     <div class="item">
+      <div class="corner-decoration corner-tl"></div>
+      <div class="corner-decoration corner-tr"></div>
+      <div class="corner-decoration corner-bl"></div>
+      <div class="corner-decoration corner-br"></div>
+      
       <h2>Artisan Pantry</h2>
       <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Artisan Pantry Store">
       <div class="stats">
